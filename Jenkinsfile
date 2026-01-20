@@ -24,8 +24,8 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                git branch: 'test',
-                    url: 'https://github.com/srikanth78933/country-chicken-backend.git'
+                git branch: 'master',
+                    url: 'https://github.com/djroy2104/country-chicken.git/'
             }
         }
 
@@ -88,7 +88,7 @@ pipeline {
         stage('Push Docker Image') {
             steps {
                 withCredentials([usernamePassword(
-                    credentialsId: 'docker-nexus-credentials',
+                    credentialsId: 'docker-credentials',
                     usernameVariable: 'DOCKER_USER',
                     passwordVariable: 'DOCKER_PASS'
                 )]) {
@@ -120,3 +120,4 @@ pipeline {
         }
     }
 }
+
