@@ -58,16 +58,16 @@ pipeline {
                 nexusArtifactUploader(
                     nexusVersion: 'nexus3',
                     protocol: 'http',
-                    nexusUrl: "${NEXUS_MAVEN_URL}",
-                    groupId: "${GROUP_ID}",
+                    nexusUrl: "http://<EC2_PUBLIC_IP>:8081",
+                    groupId: "com.countrychicken",
                     version: "${VERSION}",
-                    repository: "${MAVEN_REPO}",
+                    repository: "maven-releases",
                     credentialsId: 'nexus-credentials',
                     artifacts: [
                         [
-                            artifactId: "${APP_NAME}",
+                            artifactId: "country-chicken-backend",
                             classifier: '',
-                            file: "target/${JAR_NAME}",
+                            file: "target/country-chicken-backend-${VERSION}.jar",
                             type: 'jar'
                         ]
                     ]
@@ -120,6 +120,7 @@ pipeline {
         }
     }
 }
+
 
 
 
