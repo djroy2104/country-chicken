@@ -58,7 +58,7 @@ pipeline {
                 nexusArtifactUploader(
                     nexusVersion: 'nexus3',
                     protocol: 'http',
-                    nexusUrl: "http://<EC2_PUBLIC_IP>:8081",
+                    nexusUrl: "http://13.235.254.86:8081",
                     groupId: "com.countrychicken",
                     version: "${VERSION}",
                     repository: "maven-releases",
@@ -120,6 +120,7 @@ pipeline {
         }
     }
 }
+
 
 
 
